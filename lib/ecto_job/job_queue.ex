@@ -114,7 +114,7 @@ defmodule EctoJob.JobQueue do
           |> MyApp.Repo.transaction()
       """
       @spec enqueue(Multi.t(), term, map, Keyword.t()) :: Multi.t()
-      def enqueue(multi = %Multi{}, name, params, opts \\ []) do
+      def enqueue(multi, name, params, opts \\ []) do
         Multi.insert(multi, name, new(params, opts))
       end
     end
